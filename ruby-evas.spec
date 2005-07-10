@@ -14,40 +14,31 @@ BuildRequires:	rake
 BuildRequires:	ruby
 BuildRequires:	ruby-devel
 BuildRequires:	evas-devel
-#BuildRequires:	setup.rb = 3.3.1
 Requires:	ruby
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Ruby binding to the Evas library.
 
+%package devel
+Summary: Header files for ruby-evas
+Group:	Development/Libraries
+Requires: %{name} = %{epoch}:%{version}-%{release}
+
+%description devel
+Header files for ruby-evas.
+
 %prep
 %setup -q -n ruby-evas
-cp %{_datadir}/setup.rb .
-mkdir ext
-mv src ext/evas
-ls ext/evas/*.c > ext/evas/MANIFEST
-cat > ext/evas/extconf.rb <<EOF
-require 'mkmf'
-have_library('evas', 'evas_list_append') or exit 1
-create_makefile('evas', '.')
-EOF
 
 %build
-ruby setup.rb config \
-	--rbdir=%{ruby_rubylibdir} \
-	--sodir=%{ruby_archdir}
-ruby setup.rb setup
-
-#rdoc --op rdoc ext
-#rdoc --ri --op ri ext
+rake
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{ruby_archdir},%{ruby_ridir}}
 
-ruby setup.rb install \
-	--prefix=$RPM_BUILD_ROOT
+DESTDIR=$RPM_BUILD_ROOT RUBYARCHDIR=%{ruby_archdir} rake install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,3 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{ruby_archdir}/evas.so
+
+%files devel
+%{ruby_archdir}/evas
