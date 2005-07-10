@@ -23,8 +23,6 @@ Ruby binding to the Evas library.
 
 %prep
 %setup -q -n ruby-evas
-
-%build
 cp %{_datadir}/setup.rb .
 mkdir ext
 mv src ext/evas
@@ -35,6 +33,7 @@ have_library('evas', 'evas_list_append') or exit 1
 create_makefile('evas', '.')
 EOF
 
+%build
 ruby setup.rb config \
 	--rbdir=%{ruby_rubylibdir} \
 	--sodir=%{ruby_archdir}
