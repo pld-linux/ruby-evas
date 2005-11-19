@@ -1,6 +1,3 @@
-%define	ruby_archdir	%(ruby -r rbconfig -e 'print Config::CONFIG["archdir"]')
-%define	ruby_ridir	%(ruby -r rbconfig -e 'include Config; print File.join(CONFIG["datadir"], "ri", CONFIG["ruby_version"], "system")')
-%define ruby_rubylibdir %(ruby -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
 Summary:	Ruby binding to the evas library
 Summary(pl):	Dowi±zania jêzyka Ruby do biblioteki evas
 Name:		ruby-evas
@@ -8,11 +5,12 @@ Version:	0
 Release:	1
 License:	Ruby's
 Group:		Development/Languages
-Source0:	ruby-evas.tar.gz
+Source0:	%{name}.tar.gz
 # Source0-md5:	3257203bb047d370cd86460b83f709d4
 URL:		http://code-monkey.de/projects/ruby-efl.html
 BuildRequires:	evas-devel
 BuildRequires:	rake
+BuildRequires:	rpmbuild(macros) >= 1.263
 BuildRequires:	ruby
 BuildRequires:	ruby-devel
 Requires:	ruby
@@ -37,7 +35,7 @@ Header files for ruby-evas.
 Pliki nag³ówkowe ruby-evas.
 
 %prep
-%setup -q -n ruby-evas
+%setup -q -n %{name}
 
 %build
 rake
