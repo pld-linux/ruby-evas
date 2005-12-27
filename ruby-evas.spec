@@ -11,7 +11,6 @@ URL:		http://code-monkey.de/projects/ruby-efl.html
 BuildRequires:	evas-devel
 BuildRequires:	rake
 BuildRequires:	rpmbuild(macros) >= 1.263
-BuildRequires:	ruby-modules
 BuildRequires:	ruby-devel
 Requires:	ruby-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
