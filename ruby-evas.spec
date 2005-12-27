@@ -2,7 +2,7 @@ Summary:	Ruby binding to the evas library
 Summary(pl):	Dowi±zania jêzyka Ruby do biblioteki evas
 Name:		ruby-evas
 Version:	0
-Release:	1
+Release:	2
 License:	Ruby's
 Group:		Development/Languages
 Source0:	%{name}.tar.gz
@@ -11,9 +11,9 @@ URL:		http://code-monkey.de/projects/ruby-efl.html
 BuildRequires:	evas-devel
 BuildRequires:	rake
 BuildRequires:	rpmbuild(macros) >= 1.263
-BuildRequires:	ruby
+BuildRequires:	ruby-modules
 BuildRequires:	ruby-devel
-Requires:	ruby
+Requires:	ruby-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
