@@ -1,5 +1,5 @@
 Summary:	Ruby binding to the evas library
-Summary(pl):	Dowi±zania jêzyka Ruby do biblioteki evas
+Summary(pl.UTF-8):   DowiÄ…zania jÄ™zyka Ruby do biblioteki evas
 Name:		ruby-evas
 Version:	0
 Release:	2
@@ -18,20 +18,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Ruby binding to the evas library.
 
-%description -l pl
-Dowi±zania jêzyka Ruby do biblioteki evas.
+%description -l pl.UTF-8
+DowiÄ…zania jÄ™zyka Ruby do biblioteki evas.
 
 %package devel
 Summary:	Header files for ruby-evas
-Summary(pl):	Pliki nag³ówkowe ruby-evas
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe ruby-evas
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for ruby-evas.
 
-%description devel -l pl
-Pliki nag³ówkowe ruby-evas.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe ruby-evas.
 
 %prep
 %setup -q -n %{name}
